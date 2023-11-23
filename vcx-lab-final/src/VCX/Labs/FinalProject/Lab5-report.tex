@@ -1,0 +1,48 @@
+\documentclass{ctexart}
+\PassOptionsToPackage{numbers,compress}{natbib}
+\input{config.tex}
+\usepackage[final]{template22}
+\setlength{\parindent}{2em}
+
+\title{Lab5-Report}
+\author{王想 2100013146}
+\date{}
+\begin{document}
+\maketitle
+
+\section{Task 1: Parallel Coordinates Visualization}
+整体函数参照tutorial的参考帮助2实现,
+下面主要介绍$CoordinateStates$类的实现细节,
+绘制平行坐标系具体步骤如下：
+\begin{enumerate}
+    \item 提前规划好绘制曲线的基础属性(颜色、线条宽度、坐标轴位置等)
+    \item 根据数据确定各个坐标系的数据范围
+    \item 根据总体数据范围和单个数据的数据大小确定其在对应坐标轴上的具体位置
+    \item 将单个数据在各个坐标轴上所处的点依次连接形成折线
+    \item 循环Step3-4直到所有数据绘制完毕
+    \item 对坐标轴、文字标注等进行绘制
+\end{enumerate}
+为了实现更好的可视化效果,曲线颜色呈现渐变色,
+自下向上由绿变蓝,且设置了一定的透明度,
+颜色越深代表此处重叠的曲线越多。
+
+交互功能：
+点击坐标轴,坐标轴会高亮显示,
+数据曲线会以该坐标轴为基准,从下向上逐渐由绿变蓝,
+默认情况下以左边第一个坐标轴为基准。
+实现效果如下图所示:
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[htbp]{0.4\linewidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{figures/1.png}
+    \end{subfigure}
+    \begin{subfigure}[htbp]{0.4\linewidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{figures/7.png}
+    \end{subfigure}
+    \caption{\textbf{Parallel Coordinates}}
+\end{figure}
+
+\end{document}

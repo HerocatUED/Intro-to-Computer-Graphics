@@ -1,0 +1,2 @@
+xmake
+xmake project -a x64 -k vsxmake ./build
